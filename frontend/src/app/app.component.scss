@@ -1,0 +1,10 @@
+.main {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  position: absolute;
+  inset: 1rem;
+}
+
+.nav {
+  padding-bottom: 1rem;
+}

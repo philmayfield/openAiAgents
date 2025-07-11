@@ -1,0 +1,33 @@
+<div class="research-container">
+  <div class="controls">
+    <mat-form-field appearance="outline" class="full-width" subscriptSizing="dynamic">
+      <mat-label>Research query</mat-label>
+      <input
+        matInput
+        placeholder="Enter your research question"
+        [formControl]="researchQueryControl"
+        (keydown.enter)="onSubmit()"
+      />
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" [disabled]="isLoading()" (click)="onSubmit()">
+      Submit research
+    </button>
+  </div>
+
+  <div class="content">
+    @if (hasResult() && !isLoading()) {
+      <markdown ngPreserveWhitespaces [data]="result()" />
+    }
+
+    @if (isLoading()) {
+      <div class="loader">
+        <p>Hang tight, I'm working on your research.</p>
+
+        <p>{{ currentStatus() }}</p>
+
+        <mat-progress-bar mode="buffer" [value]="progress()" [bufferValue]="0" />
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<main class="main">
+  <header></header>
+
+  <nav class="nav" mat-tab-nav-bar [tabPanel]="tabPanel" [mat-stretch-tabs]="false">
+    <a
+      mat-tab-link
+      routerLink="/tell-joke"
+      routerLinkActive
+      #rlaJoke="routerLinkActive"
+      [active]="rlaJoke.isActive"
+      >Jokester</a
+    >
+
+    <a
+      mat-tab-link
+      routerLink="/research"
+      routerLinkActive
+      #rlaResearch="routerLinkActive"
+      [active]="rlaResearch.isActive"
+      >Researcher</a
+    >
+  </nav>
+
+  <mat-tab-nav-panel #tabPanel>
+    <router-outlet />
+  </mat-tab-nav-panel>
+</main>

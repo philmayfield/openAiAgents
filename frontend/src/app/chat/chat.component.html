@@ -1,0 +1,33 @@
+<mat-card class="chat-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Chat it up</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="chat-content">
+    <mat-list>
+      @for (msg of messages() ?? []; let i = $index; track i) {
+        <mat-list-item>
+          <div [class]="{ 'user-msg': msg.role === 'user', 'bot-msg': msg.role === 'bot' }">
+            <strong>{{ msg.role === 'user' ? 'You' : 'Bot' }}:</strong> {{ msg.content }}
+          </div>
+        </mat-list-item>
+      }
+    </mat-list>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <form [formGroup]="formGroup" (ngSubmit)="onSendMessage()" autocomplete="off">
+      <mat-form-field class="input-field" appearance="outline">
+        <input
+          matInput
+          #inputEl
+          formControlName="userInput"
+          placeholder="Type your message..."
+          autocomplete="off"
+        />
+      </mat-form-field>
+
+      <button mat-icon-button type="submit"><mat-icon>send</mat-icon></button>
+    </form>
+  </mat-card-actions>
+</mat-card>

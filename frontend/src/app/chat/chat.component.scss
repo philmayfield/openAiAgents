@@ -1,0 +1,27 @@
+.chat-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.chat-content {
+  overflow-y: auto;
+}
+
+.user-msg {
+  text-align: right;
+  color: #1976d2;
+}
+
+.bot-msg {
+  text-align: left;
+  color: #388e3c;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+}
