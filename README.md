@@ -1,59 +1,114 @@
-# OpenAiAgents
+# OpenAI Agents
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+A full-stack web application with Angular frontend and NestJS backend, featuring some goofy AI features using OpenAI Agents.
 
-## Development server
+## Architecture
 
-To start a local development server, run:
+- **Frontend**: Angular 20 application with a few features
+- **Backend**: NestJS API with OpenAI Agents integration
+- **AI Features**: Automated research with planning, web search, and report generation
+
+## Prerequisites
+
+You will need an OpenAI API key. You can get one at the [OpenAI platform](https://platform.openai.com/) website. Once you have your API key, you can do one of two things.
+
+1. Add it to a `.env` file in the `backend/` directory.
+
+```
+OPENAI_API_KEY=sk-your-actual-key-here
+```
+
+2. Set the environment variable in your terminal:
+
+```bash
+export OPENAI_API_KEY=sk-your-actual-key-here
+```
+
+## Development Setup
+
+### Backend (NestJS)
+
+1. Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run start:dev
+```
+
+The backend API will run on `http://localhost:3001`
+
+### Frontend (Angular)
+
+1. Navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The frontend will run on `http://localhost:4200` and automatically reload when you modify source files.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Research Agent
 
-```bash
-ng generate component component-name
-```
+- **AI-Powered Research**: Automatically plans and executes web searches
+- **Real-time Streaming**: Live status updates with progress tracking
+- **Multi-stage Process**: Planning → Searching → Report Writing
+- **Markdown Output**: Structured research reports
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Chat Agent
 
-```bash
-ng generate --help
-```
+- **Joke Generation**: Specialized joke-telling functionality
+
+## API Endpoints
+
+### Backend API (`http://localhost:3001`)
+
+- `POST /api/research` - Perform research (traditional)
+- `GET /api/research/stream` - Stream research progress (SSE)
+- `POST /api/chat/joke` - Generate jokes
 
 ## Building
 
-To build the project run:
+### Frontend
 
 ```bash
+cd frontend
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Backend
 
 ```bash
-ng test
+cd backend
+npm run build
 ```
 
-## Running end-to-end tests
+## Technology Stack
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Frontend**: Angular 20, Angular Material, RxJS, Server-Sent Events
+- **Backend**: NestJS, TypeScript, OpenAI Agents (@openai/agents)
+- **AI**: OpenAI GPT models with structured output and function calling
